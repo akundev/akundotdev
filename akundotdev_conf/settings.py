@@ -184,6 +184,7 @@ SESSION_COOKIE_SECURE = True
 
 try:
     import secret
+
     SECURE_SSL_REDIRECT = secret.SECURE_SSL_REDIRECT
 except ModuleNotFoundError:
     SECURE_SSL_REDIRECT = False
