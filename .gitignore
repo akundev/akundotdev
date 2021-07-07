@@ -131,3 +131,7 @@ dmypy.json
 staticfiles/
 
 email_secret.py
+
+# Database
+postgres_data/
+db.json
