@@ -29,10 +29,10 @@ try:
     DEBUG = secret.DEBUG
 
 except ModuleNotFoundError:
-    DEBUG = True
+    DEBUG = False
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "akun.dev", "18.217.134.213"]
+ALLOWED_HOSTS = ["172.31.14.254", "akun.dev"]
 
 
 # Application definition
@@ -94,7 +94,7 @@ DATABASES = {
         "NAME": "hello_django_dev",
         "USER": "hello_django",
         "PASSWORD": "hello_django",
-        "HOST": "db",
+        "HOST": "localhost",
         "PORT": 5432,
     }
 }
