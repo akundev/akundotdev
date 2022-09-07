@@ -135,3 +135,4 @@ email_secret.py
 # Database
 postgres_data/
 db.json
+db.sqlite3
