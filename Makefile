@@ -7,11 +7,13 @@ lint:
 run:
 	pipenv run python3 ./manage.py runserver
 
+
 prod:
-	pipenv run gunicorn -b 0.0.0.0:8000 -w 4 settings.wsgi:application
+	pipenv run gunicorn -b 0.0.0.0:80 -w 4 settings.wsgi:application --daemon
 
 sttc:
 	pipenv run python3 ./manage.py collectstatic
 
 tst:
 	pipenv run python3 ./manage.py test
+
