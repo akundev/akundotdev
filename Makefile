@@ -8,7 +8,8 @@ run:
 	pipenv run python3 ./manage.py runserver
 
 prod:
-	pipenv run gunicorn -b 0.0.0.0:8000 -w 4 settings.wsgi:application
+	pipenv run gunicorn -b 127.0.0.1:8000 -w 4 settings.wsgi:application --daemon
+	ps auxwww | grep gunicorn
 
 sttc:
 	pipenv run python3 ./manage.py collectstatic
