@@ -1,8 +1,9 @@
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import DetailView, ListView
 
 from apps.users.models import CustomUser
+
 from .models import Product
+
 
 # Create your views here.
 class ProductListView(ListView):

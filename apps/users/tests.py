@@ -1,10 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-
 from .models import CustomUser
-from .views import TemplateView
-
 
 # Create your tests here.
 normal_user = {

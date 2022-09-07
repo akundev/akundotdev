@@ -1,8 +1,8 @@
-from django.db import models
 from django.core.mail import send_mail
-
+from django.db import models
 
 from apps.shop.models import Product
+
 
 # Create your models here.
 class Order(models.Model):

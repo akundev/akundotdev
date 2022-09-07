@@ -1,11 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse
 
-
 from apps.articles.models import Tag
 from apps.users.models import CustomUser
-from .models import Tool
 
+from .models import Tool
 
 # Create your tests here.
 test_tool = {

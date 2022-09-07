@@ -3,6 +3,7 @@ from django.urls import reverse
 
 from apps.articles.models import Tag
 
+
 # Create your models here.
 class Tool(models.Model):
     name = models.CharField(verbose_name="Tool", max_length=150)

@@ -1,11 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse
 
-
-from .models import Product
 from apps.articles.models import Tag
 from apps.users.models import CustomUser
 
+from .models import Product
 
 test_product = {
     "name": "Test Product",

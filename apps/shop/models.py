@@ -3,6 +3,7 @@ from django.urls import reverse
 
 from apps.articles.models import Tag
 
+
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(verbose_name="Product", max_length=150)

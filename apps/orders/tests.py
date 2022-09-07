@@ -1,9 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Order
 from apps.shop.models import Product
 from apps.users.models import CustomUser
+
+from .models import Order
 
 test_order = {"name": "Django Django", "email": "django@django.some", "paid": True}
 

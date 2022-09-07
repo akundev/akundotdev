@@ -1,10 +1,11 @@
-from django.views.generic.edit import CreateView
-from django.views.generic import TemplateView
 from django.urls import reverse_lazy
-
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 
 from apps.users.models import CustomUser
+
 from .models import Order
+
 
 # Create your views here.
 class SuccessView(TemplateView):

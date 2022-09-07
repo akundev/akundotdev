@@ -1,13 +1,12 @@
+import markdown
 from django.test import TestCase
 from django.urls import reverse
 
-import markdown
-
-from .models import Tag, Article
-from apps.users.models import CustomUser
-from apps.tools.models import Tool
 from apps.shop.models import Product
+from apps.tools.models import Tool
+from apps.users.models import CustomUser
 
+from .models import Article, Tag
 
 test_tag = {
     "tag_name": "test_tag",

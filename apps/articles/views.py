@@ -1,11 +1,10 @@
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import DetailView, ListView
 
-import markdown
-
-from apps.users.models import CustomUser
-from apps.tools.models import Tool
 from apps.shop.models import Product
-from .models import Tag, Article
+from apps.tools.models import Tool
+from apps.users.models import CustomUser
+
+from .models import Article, Tag
 
 
 class HomepageListView(ListView):
