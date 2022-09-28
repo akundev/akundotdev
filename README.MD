@@ -2,102 +2,36 @@
 
 Portfolio of [Almaz Kunpeissov, Software Engineer](https://akun.dev). Python, Django.
 
+This is Django applications for blogging, portfolio and some e-commerce. 
+
+# To use
+* copy the repo
+    ```
+    git clone https://github.com/akundev/akundotdev.git
+    ```
 
 
-## Useful links
-* https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html
-* https://stackabuse.com/deploying-django-applications-to-aws-ec2-with-docker/
-* https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
-* https://django-lessons.com/lesson/lesson-22-django-deploy-production-step-by-step-from-zero-to-hero-part-5-gunicorn
-* https://github.com/dmitrym0/simple-lets-encrypt-docker-compose-sample/blob/master/docker-compose.yml
 
+* change `.env` variables:
+    ```
+    cd akundotdev
+    cp .env.example .env
+    ```
 
-## Docker commands
-```bash
-docker-compose -f docker-compose.yml down -v
+* install `pipenv` and dependencies, migrate db, collect static files:
+    ```
+    pip3 install pipenv
+    pipenv install
+    pipenv run python3 manage.py migrate
+    pipenv run python3 manage.py collectstatic
+    ```
 
+* start dev server:
+    ```
+    make run
+    ```
 
-docker-compose -f docker-compose.yml up -d --build
-
-
-docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
-
-
-docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
-```
-
-```
-<VirtualHost *:80>
-    ServerAdmin me@akun.dev
-    DocumentRoot /var/www/html/akun.dev/
-    ServerName akun.dev
-    ServerAlias *.akun.dev
-
-    <Directory /var/www/html/akun.dev/akundotdev_conf>
-        <Files wsgi.py>
-            Require all granted
-        </Files>
-    </Directory>
-    <Location />
-        ProxyPass / http://127.0.0.1:8000/
-        ProxyPassReverse / http://127.0.0.1:8000/
-    </location>
-
-    ErrorLog /var/log/httpd/akun.dev.com-error_log
-    CustomLog /var/log/httpd/akun.dev.com-access_log common
-</VirtualHost>
-
-<VirtualHost *:443>
-    ServerAdmin me@akun.dev
-    DocumentRoot /var/www/html/akun.dev/
-    ServerName akun.dev
-    ServerAlias *.akun.dev
-    RequestHeader set X-Forwarded-Proto 'https' env=HTTPS
-
-    SSLEngine on
-    SSLProtocol all -SSLv2
-    SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
-    SSLCertificateFile "/etc/letsencrypt/live/akun.dev/cert.pem"
-    SSLCertificateKeyFile "/etc/letsencrypt/live/akun.dev/privkey.pem"
-
-    <Directory /var/www/html/akun.dev/akundotdev_conf>
-        <Files wsgi.py>
-            Require all granted
-        </Files>
-    </Directory>
-
-    <Location />
-        ProxyPass / http://127.0.0.1:8000/
-        ProxyPassReverse / http://127.0.0.1:8000/
-    </location>
-
-    ErrorLog /var/log/httpd/akun.dev.com-error_log
-    CustomLog /var/log/httpd/akun.dev.com-access_log common
-</VirtualHost>
-```
-
-/etc/httpd/conf.d/akun.dev.conf
-
-PATH=$PATH:~/opt/bin
-killall gunicorn
-
-sudo rm -rf staticfiles
-sudo mkdir staticfiles
-sudo chmod 777 staticfiles
-python36 manage.py collectstatic
-sudo chmod 755 staticfiles
-
-```bash
-gunicorn -b 127.0.0.1:8000 -w 3 akundotdev_conf.wsgi --daemon
-```
-
-```bash
-git clone https://github.com/almazkun/akundotdev.git
-```
-```bash
-sudo yum install -y mod24_ssl
-sudo ./certbot-auto --debug -v --server https://acme-v02.api.letsencrypt.org/directory certonly -d akun.dev
-```
-IT Consulting · Web Development · Custom Software Development · Application Development
-Web Development · Business Analytics · Database Development · Custom Software Development · Information Management · User Experience Design (UED)
-Web Development · Custom Software Development · Application Development
+* start prod server:
+    ```
+    make prod
+    ```
