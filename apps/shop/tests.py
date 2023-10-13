@@ -71,14 +71,6 @@ class TestProductListView(TestCase):
         self.assertTemplateUsed(response, "shop/products_list.html")
         self.assertEqual(response.status_code, 200)
 
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=self.test_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("products_list"))
-
-        self.assertEqual(response.context["main_author"], main_author)
-
 
 class TestProductsDetailViews(TestCase):
     def setUp(self):
@@ -111,11 +103,3 @@ class TestProductsDetailViews(TestCase):
             response.context["product"].tags.all()[0].tag_name,
             self.test_tag["tag_name"],
         )
-
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=self.test_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("products_list"))
-
-        self.assertEqual(response.context["main_author"], main_author)

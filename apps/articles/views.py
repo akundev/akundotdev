@@ -2,7 +2,6 @@ from django.views.generic import DetailView, ListView
 
 from apps.shop.models import Product
 from apps.tools.models import Tool
-from apps.users.models import CustomUser
 
 from .models import Article, Tag
 
@@ -15,7 +14,6 @@ class HomepageListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["main_author"] = CustomUser.objects.filter(main_user=True).first()
         context["tools"] = Tool.objects.all()[:5]
         context["products"] = Product.objects.all()[:5]
         return context
@@ -26,11 +24,6 @@ class ArticleListView(ListView):
     context_object_name = "articles"
     template_name = "articles/articles.html"
     queryset = Article.objects.all().is_published()
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["main_author"] = CustomUser.objects.filter(main_user=True).first()
-        return context
 
 
 class ArticleDetailView(DetailView):
@@ -44,11 +37,6 @@ class ArticleDetailView(DetailView):
         obj.content = obj.content_to_markdown()
         return obj
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["main_author"] = CustomUser.objects.filter(main_user=True).first()
-        return context
-
 
 class TagDetailView(DetailView):
     model = Tag
@@ -57,7 +45,6 @@ class TagDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["main_author"] = CustomUser.objects.filter(main_user=True).first()
         context["articles"] = self.object.article_set.all()
         context["tools"] = self.object.tool_set.all()
         context["products"] = self.object.product_set.all()

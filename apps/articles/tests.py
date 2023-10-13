@@ -153,14 +153,6 @@ class TestHomepageListView(TestCase):
         self.assertTemplateUsed(response, "articles/home.html")
         self.assertEqual(response.status_code, 200)
 
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=normal_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("home"))
-
-        self.assertEqual(response.context["main_author"], main_author)
-
 
 class TestArticleListView(TestCase):
     def setUp(self):
@@ -181,14 +173,6 @@ class TestArticleListView(TestCase):
         self.assertTemplateUsed(response, "articles/articles.html")
         self.assertEqual(response.status_code, 200)
 
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=normal_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("articles"))
-
-        self.assertEqual(response.context["main_author"], main_author)
-
 
 class TestArticleDetailView(TestCase):
     def setUp(self):
@@ -206,16 +190,6 @@ class TestArticleDetailView(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "articles/article_detail.html")
-
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=normal_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(
-            reverse("article_detail", kwargs={"slug": test_article["slug"]})
-        )
-
-        self.assertEqual(response.context["main_author"], main_author)
 
 
 class TestTagDetailView(TestCase):
@@ -270,13 +244,25 @@ class TestTagDetailView(TestCase):
         self.assertEqual(str(response.context["products"]), str(products))
         self.assertTemplateUsed(response, "articles/tag_detail.html")
 
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=self.test_user["username"])
-        main_author.main_user = True
-        main_author.save()
 
-        response = self.client.get(
-            reverse("tag_detail", kwargs={"slug": self.test_tag["slug"]})
+class TestContextProcessors(TestCase):
+    def setUp(self):
+        CustomUser.objects.create_user(**normal_user)
+        test_article["author"] = CustomUser.objects.get(
+            username=normal_user["username"]
         )
+        Article.objects.create(**test_article)
 
-        self.assertEqual(response.context["main_author"], main_author)
+    def test_context_processors(self):
+        key_list = [
+            "github_link",
+            "linkedin_link",
+            "cv_link",
+            "email_link",
+        ]
+        response = self.client.get(
+            reverse("article_detail", kwargs={"slug": test_article["slug"]})
+        )
+        context = response.context
+        for key in key_list:
+            self.assertTrue(key in context)

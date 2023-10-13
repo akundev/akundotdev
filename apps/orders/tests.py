@@ -57,14 +57,6 @@ class TestOrderCreateView(TestCase):
         self.assertTemplateUsed(response, "orders/order_form.html")
         self.assertEqual(response.status_code, 200)
 
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=self.test_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("order_create"))
-
-        self.assertEqual(response.context["main_author"], main_author)
-
 
 class TestSuccessView(TestCase):
     """Test Success View"""
@@ -78,11 +70,3 @@ class TestSuccessView(TestCase):
 
         self.assertTemplateUsed(response, "orders/success_created.html")
         self.assertEqual(response.status_code, 200)
-
-    def test_main_author(self):
-        main_author = CustomUser.objects.get(username=self.test_user["username"])
-        main_author.main_user = True
-        main_author.save()
-        response = self.client.get(reverse("success_created"))
-
-        self.assertEqual(response.context["main_author"], main_author)

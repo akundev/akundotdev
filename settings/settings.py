@@ -73,6 +73,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "settings.context_processors.about_links",
             ],
         },
     },
@@ -186,3 +187,10 @@ LOGGING = {
         "level": "DEBUG",
     },
 }
+
+
+# About links
+AB_GITHUB_LINK = os.environ.get("AB_GITHUB_LINK", "")
+AB_LINKEDIN_LINK = os.environ.get("AB_LINKEDIN_LINK", "")
+AB_CV_LINK = os.environ.get("AB_CV_LINK", "")
+AB_EMAIL_LINK = os.environ.get("AB_EMAIL_LINK", "")

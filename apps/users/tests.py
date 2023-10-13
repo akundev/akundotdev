@@ -38,7 +38,6 @@ class TestAboutTemplateView(TestCase):
     def test_about(self):
         self.assertTemplateUsed(self.response, "users/about.html")
         self.assertEqual(self.response.status_code, 200)
-        self.assertEqual(self.response.context["main_author"], self.main_author)
 
 
 class UsersManagersTests(TestCase):
