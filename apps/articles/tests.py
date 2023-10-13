@@ -54,6 +54,7 @@ test_product = {
     "price": 2000,
 }
 
+
 # Create your tests here.
 class TestTagModel(TestCase):
     def test_tag_model(self):
@@ -198,7 +199,7 @@ class TestArticleDetailView(TestCase):
         Article.objects.create(**test_article)
 
     def test_article_detail(self):
-        obj = Article.objects.get(title=test_article["title"])
+        Article.objects.get(title=test_article["title"])
         response = self.client.get(
             reverse("article_detail", kwargs={"slug": test_article["slug"]})
         )

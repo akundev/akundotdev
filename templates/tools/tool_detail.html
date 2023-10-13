@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
-{% block title %}{{tool.name}}{% endblock title %}
+{% block title %}
+    {{ tool.name }}
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
@@ -7,14 +9,19 @@
                 <h1 class="display-4">{{ tool.name }}</h1>
                 <div class="p-2 border rounded mb-3">
                     <div class="embed-responsive embed-responsive-21by9">
-                        <img class="embed-responsive-item" src="{{tool.img_link}}" style="object-fit: contain; object-position: center;">
+                        <img class="embed-responsive-item"
+                             src="{{ tool.img_link }}"
+                             style="object-fit: contain;
+                                    object-position: center">
                     </div>
                 </div>
                 <p class="lead">{{ tool.description }}</p>
-                <a href="{{tool.link}}" target="_blank"><div class="btn btn-outline-dark mb-3">Try it</div></a>
+                <a href="{{ tool.link }}" target="_blank">
+                    <div class="btn btn-outline-dark mb-3">Try it</div>
+                </a>
                 <hr class="">
                 {% for tag in tool.tags.all %}
-                    <a href="{{tag.get_absolute_url}}" class="text-muted">#{{tag.tag_name}}</a>
+                    <a href="{{ tag.get_absolute_url }}" class="text-muted">#{{ tag.tag_name }}</a>
                 {% endfor %}
             </div>
         </div>

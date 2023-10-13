@@ -1,15 +1,18 @@
 {% extends "_base.html" %}
-
-{% block title %}Tools of Python{% endblock title %}
+{% block title %}
+    Tools of Python
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
             <div class="my-4">
                 <h1 class="display-4">Tools of Python</h1>
-                <p class="lead">Different software I've happened to write<p>
-                <hr>
-                {% include 'includes/list_tool.html' %}
-            </div>
-        </div>
-    </section>
-{% endblock main_content %}
+                <p class="lead">
+                    Different software I've happened to write
+                    <p>
+                        <hr>
+                        {% include 'includes/list_tool.html' %}
+                    </div>
+                </div>
+            </section>
+        {% endblock main_content %}

@@ -1,13 +1,16 @@
 {% extends "_base.html" %}
-
-{% block title %}Almaz Kunpeissov | Software Engineer | Python | Portfolio{% endblock title %}
+{% block title %}
+    Almaz Kunpeissov | Software Engineer | Python | Portfolio
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
             <div class="my-4">
                 <h1 class="display-4">Almaz Kunpeissov</h1>
                 <h3>Software Engineer</h3>
-                <p class="lead">Enjoy creating a vast, complex system. Enjoy maintaining it. Improving it. Gradually rid it of its imperfection.</p>
+                <p class="lead">
+                    Enjoy creating a vast, complex system. Enjoy maintaining it. Improving it. Gradually rid it of its imperfection.
+                </p>
                 <hr>
                 <h3>Summary</h3>
                 <p>More than four (4+) years of professional web-development experience.</p>
@@ -16,10 +19,28 @@
                 <p>REST API integration & API endpoints development (Django REST Framework).</p>
                 <p>Agile, Scrum & Kanban.</p>
                 <div class="my-4">
-                    <div class="mb-1"><a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.github_link}}" target="_blank"><i class="fab fa-github"></i></a><span class="text-break">{{main_author.github_link}}</span></div>
-                    <div class="mb-1"><a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.linkedin_link}}" target="_blank"><i class="fab fa-linkedin-in"></i></a><span class="text-break">{{main_author.linkedin_link}}</span></div>
-                    <div class="mb-1"><a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.cv_link}}" target="_blank"><div class="font-weight-bold">CV</div></a><span class="text-break">{{main_author.cv_link}}</span></div>
-                    <div class="mb-1"><a class="btn rounded mr-2 bg-black text-white icon" href="mailto:{{main_author.public_email}}" target="_blank"><i class="fas fa-at"></i></a><span class="text-break">{{main_author.public_email}}</span></div>
+                    <div class="mb-1">
+                        <a class="btn rounded mr-2 bg-black text-white icon"
+                           href="{{ main_author.github_link }}"
+                           target="_blank"><i class="fab fa-github"></i></a><span class="text-break">{{ main_author.github_link }}</span>
+                    </div>
+                    <div class="mb-1">
+                        <a class="btn rounded mr-2 bg-black text-white icon"
+                           href="{{ main_author.linkedin_link }}"
+                           target="_blank"><i class="fab fa-linkedin-in"></i></a><span class="text-break">{{ main_author.linkedin_link }}</span>
+                    </div>
+                    <div class="mb-1">
+                        <a class="btn rounded mr-2 bg-black text-white icon"
+                           href="{{ main_author.cv_link }}"
+                           target="_blank">
+                            <div class="font-weight-bold">CV</div>
+                        </a><span class="text-break">{{ main_author.cv_link }}</span>
+                    </div>
+                    <div class="mb-1">
+                        <a class="btn rounded mr-2 bg-black text-white icon"
+                           href="mailto:{{ main_author.public_email }}"
+                           target="_blank"><i class="fas fa-at"></i></a><span class="text-break">{{ main_author.public_email }}</span>
+                    </div>
                 </div>
                 <div class="py-4">
                     <h2 class="display-4">Tech stack</h2>
@@ -55,79 +76,108 @@
                         <p class="lead">Basecamp</p>
                     </div>
                 </div>
-                    <div class="py-4">
-                        <h2 class="display-4">Employment</h2>
-
-                        <div class="my-4 d-flex justify-content-between">
-                            <a href="https://shipper.kz/" target="_blank"><h3>Shipper LLC</h3></a>
-                            <div class="font-weight-bold">
-                                <h3>from 2019</h3>
-                            </div>
+                <div class="py-4">
+                    <h2 class="display-4">Employment</h2>
+                    <div class="my-4 d-flex justify-content-between">
+                        <a href="https://shipper.kz/" target="_blank">
+                            <h3>Shipper LLC</h3>
+                        </a>
+                        <div class="font-weight-bold">
+                            <h3>from 2019</h3>
                         </div>
-                        <hr class="bg-light"> 
-                        <p class="lead">Software Engineer, Python</p>
-                        <p>Design, develop, test, deploy, maintain, and improve software that is being developed in the company.</p>
-                        <p>Manage individual project priorities, deadlines, and deliverables.</p>
-                        <p>Work closely with other engineering teams to reuse and understand existing frameworks.</p>
-                        <p>Participate in the entire application lifecycle.</p>
-                        <p>Work with Front-end developers to build application.</p>
-                        <p>Gather and address technical and design requirements.</p>
-                        <p>API integration with Amazon and eBay marketplaces.</p>
-                        <p>Designing API endpoints and microservices.</p>
-                        <p>Deploying on and integration with main Cloud computing providers.</p>
                     </div>
-
-                    <div class="py-5">
-                        <div class="d-flex justify-content-between">
-                            <a href="https://finlaw.kz/" target="_blank"><h3>Law Firm Fianancial Advocate LLC</h3></a>
-                            <div class="font-weight-bold">
-                                <h3>2017 - 2019</h3>
-                            </div>
+                    <hr class="bg-light">
+                    <p class="lead">Software Engineer, Python</p>
+                    <p>Design, develop, test, deploy, maintain, and improve software that is being developed in the company.</p>
+                    <p>Manage individual project priorities, deadlines, and deliverables.</p>
+                    <p>Work closely with other engineering teams to reuse and understand existing frameworks.</p>
+                    <p>Participate in the entire application lifecycle.</p>
+                    <p>Work with Front-end developers to build application.</p>
+                    <p>Gather and address technical and design requirements.</p>
+                    <p>API integration with Amazon and eBay marketplaces.</p>
+                    <p>Designing API endpoints and microservices.</p>
+                    <p>Deploying on and integration with main Cloud computing providers.</p>
+                </div>
+                <div class="py-5">
+                    <div class="d-flex justify-content-between">
+                        <a href="https://finlaw.kz/" target="_blank">
+                            <h3>Law Firm Fianancial Advocate LLC</h3>
+                        </a>
+                        <div class="font-weight-bold">
+                            <h3>2017 - 2019</h3>
                         </div>
-                        <hr class="bg-light"> 
-                        <p class="lead">Software Engineer</p>
-                        <p>Analysis, design, development and testing of a corporate web-site</p>
-                        <p>Project planning and maintaining project documentation</p>
-                        <p>Providing high-quality development.</p>
                     </div>
-
-                    <div class="py-5">
-                        <div class="d-flex justify-content-between">
-                            <a href="https://akun.dev/" target="_blank"><h3>Akun.dev</h3></a>
-                            <div class="font-weight-bold">
-                                <h3>from 2016</h3>
-                            </div>
+                    <hr class="bg-light">
+                    <p class="lead">Software Engineer</p>
+                    <p>Analysis, design, development and testing of a corporate web-site</p>
+                    <p>Project planning and maintaining project documentation</p>
+                    <p>Providing high-quality development.</p>
+                </div>
+                <div class="py-5">
+                    <div class="d-flex justify-content-between">
+                        <a href="https://akun.dev/" target="_blank">
+                            <h3>Akun.dev</h3>
+                        </a>
+                        <div class="font-weight-bold">
+                            <h3>from 2016</h3>
                         </div>
-                        <hr class="bg-light"> 
-                        <p class="lead">Full Stack Developer</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p><strong>Things I've build</strong></p>
-                                <a href="https://goldenroof.org" target="_blank"><p>Goldenroof.org</p></a>
-                                <a href="https://energyproject.kz" target="_blank"><p>Energyproject.kz</p></a>
-                                <a href="https://law-protection.kz" target="_blank"><p>Law-protection.kz</p></a>
-                                <a href="https://kolgotka.kz" target="_blank"><p>Kolgotka.kz</p></a>
-                                <a href="https://groof.kz" target="_blank"><p>Groof.kz</p></a>
-                            </div>
-                            <div class="col-md-6">
-                                <p><strong>Common features</strong></p>
-                                Python / Django<br>
-                                Mobile first, fully responsive<br>
-                                HTML5 / CSS3<br>
-                                UI / UX Design<br>
-                                Bootstrap 4<br>
-                                DigitalOcean / GitHub Pages<br>
-                                Cloudflare DNS / CDN<br>
-                                Nginx / Apache / Vesta CP<br>
-                                Corporate e-mail server<br>
-                                SSL/TLS Certificates / Let's Encrypt<br>
-                                Online Chat<br>
-                                Google Analytics, Google Ads</p>
-                            </div>
+                    </div>
+                    <hr class="bg-light">
+                    <p class="lead">Full Stack Developer</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                <strong>Things I've build</strong>
+                            </p>
+                            <a href="https://goldenroof.org" target="_blank">
+                                <p>Goldenroof.org</p>
+                            </a>
+                            <a href="https://energyproject.kz" target="_blank">
+                                <p>Energyproject.kz</p>
+                            </a>
+                            <a href="https://law-protection.kz" target="_blank">
+                                <p>Law-protection.kz</p>
+                            </a>
+                            <a href="https://kolgotka.kz" target="_blank">
+                                <p>Kolgotka.kz</p>
+                            </a>
+                            <a href="https://groof.kz" target="_blank">
+                                <p>Groof.kz</p>
+                            </a>
                         </div>
+                        <div class="col-md-6">
+                            <p>
+                                <strong>Common features</strong>
+                            </p>
+                            Python / Django
+                            <br>
+                            Mobile first, fully responsive
+                            <br>
+                            HTML5 / CSS3
+                            <br>
+                            UI / UX Design
+                            <br>
+                            Bootstrap 4
+                            <br>
+                            DigitalOcean / GitHub Pages
+                            <br>
+                            Cloudflare DNS / CDN
+                            <br>
+                            Nginx / Apache / Vesta CP
+                            <br>
+                            Corporate e-mail server
+                            <br>
+                            SSL/TLS Certificates / Let's Encrypt
+                            <br>
+                            Online Chat
+                            <br>
+                            Google Analytics, Google Ads
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+</section>
 {% endblock main_content %}

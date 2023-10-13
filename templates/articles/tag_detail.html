@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
-{% block title %}{{tag.tag_name}}{% endblock title %}
+{% block title %}
+    {{ tag.tag_name }}
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
@@ -7,17 +9,22 @@
                 <h1 class="display-4">{{ tag.tag_name }}</h1>
                 <div class="p-2 border rounded mb-3">
                     <div class="embed-responsive embed-responsive-21by9">
-                        <img class="embed-responsive-item" src="{{tag.img_link}}" style="object-fit: contain; object-position: center;">
+                        <img class="embed-responsive-item"
+                             src="{{ tag.img_link }}"
+                             style="object-fit: contain;
+                                    object-position: center">
                     </div>
                 </div>
                 <p class="lead">{{ tag.description }}</p>
-                <a href="{{tag.source_link}}" target="_blank"><div class="btn btn-outline-dark mb-3">Read more</div></a>
+                <a href="{{ tag.source_link }}" target="_blank">
+                    <div class="btn btn-outline-dark mb-3">Read more</div>
+                </a>
                 <hr class="">
             </div>
             {% if articles %}
                 <div class="my-4 py-4">
                     <h2 class="font-weight-bold">{{ tag.tag_name }} in Articles</h2>
-                        {% include 'includes/list_article.html' %}
+                    {% include 'includes/list_article.html' %}
                 </div>
             {% endif %}
             {% if tools %}

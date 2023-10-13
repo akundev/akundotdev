@@ -2,10 +2,14 @@
     {% for tool in tools %}
         <div class="col-6 p-2">
             <div class="p-2 rounded shadow-hover text-center">
-                <a href="{{ tool.get_absolute_url }}"><div class="tool-image mb-2">
-                    <img src="{{tool.img_link}}">
-                </div></a>
-                <a href="{{ tool.get_absolute_url }}"><h3>{{ tool.name }}</h3></a>
+                <a href="{{ tool.get_absolute_url }}">
+                    <div class="tool-image mb-2">
+                        <img src="{{ tool.img_link }}">
+                    </div>
+                </a>
+                <a href="{{ tool.get_absolute_url }}">
+                    <h3>{{ tool.name }}</h3>
+                </a>
                 <div class="mb-2">{{ tool.description }}</div>
             </div>
         </div>

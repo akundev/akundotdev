@@ -1,14 +1,18 @@
 {% extends "_base.html" %}
-{% block title %}Articles{% endblock title %}
+{% block title %}
+    Articles
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
             <div class="my-4">
                 <h1 class="display-4">Articles</h1>
-                <p class="lead">Articles related to Python, Django and Software Development in general.<p>
-                <hr>
-                {% include 'includes/list_article.html' %}
-            </div>
-        </div>
-    </section>
-{% endblock main_content %}
+                <p class="lead">
+                    Articles related to Python, Django and Software Development in general.
+                    <p>
+                        <hr>
+                        {% include 'includes/list_article.html' %}
+                    </div>
+                </div>
+            </section>
+        {% endblock main_content %}

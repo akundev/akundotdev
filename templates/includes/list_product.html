@@ -5,7 +5,9 @@
                 <a href="{{ product.get_absolute_url }}">
                     <div class="embed-responsive embed-responsive-1by1">
                         <div class="embed-responsive-item display-4 d-flex justify-content-center   ">
-                            <div class=" align-self-center "><u>{{product.abbr}}</u></div>
+                            <div class=" align-self-center ">
+                                <u>{{ product.abbr }}</u>
+                            </div>
                         </div>
                     </div>
                     <div class="font-italic text-decoration-none">{{ product.price }}</div>

@@ -2,13 +2,28 @@
     <div class="container">
         <footer class="py-4">
             <div class="d-flex mb-4">
-                <a class="btn rounded mr-2 bg-black text-white icon" href="{% url "home" %}"><div class="font-weight-bold">ak</div></a>
-                <a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.github_link}}" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.linkedin_link}}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn rounded mr-2 bg-black text-white icon" href="{{main_author.cv_link}}" target="_blank"><div class="font-weight-bold">CV</div></a>
-                <a class="btn rounded mr-2 bg-black text-white icon" href="mailto:{{main_author.public_email}}" target="_blank"><i class="fas fa-at"></i></a>
+                <a class="btn rounded mr-2 bg-black text-white icon"
+                   href="{% url "home" %}">
+                    <div class="font-weight-bold">ak</div>
+                </a>
+                <a class="btn rounded mr-2 bg-black text-white icon"
+                   href="{{ main_author.github_link }}"
+                   target="_blank"><i class="fab fa-github"></i></a>
+                <a class="btn rounded mr-2 bg-black text-white icon"
+                   href="{{ main_author.linkedin_link }}"
+                   target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn rounded mr-2 bg-black text-white icon"
+                   href="{{ main_author.cv_link }}"
+                   target="_blank">
+                    <div class="font-weight-bold">CV</div>
+                </a>
+                <a class="btn rounded mr-2 bg-black text-white icon"
+                   href="mailto:{{ main_author.public_email }}"
+                   target="_blank"><i class="fas fa-at"></i></a>
             </div>
-            <div class="">Copyright &copy; {% now 'Y'%}, <a href="{% url "home" %}">akun.dev</a></div>
+            <div class="">
+                Copyright &copy; {% now 'Y' %}, <a href="{% url "home" %}">akun.dev</a>
+            </div>
         </footer>
     </div>
 </section>

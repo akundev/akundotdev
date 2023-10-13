@@ -5,36 +5,54 @@
             {% if articles %}
                 <div class="pb-4">
                     <div class="my-4">
-                        <a href="{% url "articles" %}"><h1 class="display-4">Articles</h1></a>
-                        <p class="lead">Articles related to Python, Django and Software Development in general.<p>
-                        <hr>
-                        {% include 'includes/list_article.html' %}
-                    </div>
-                    <a class="mb-4" href="{% url 'articles' %}"><div class="btn btn-outline-dark">All articles</div></a>
-                </div>
-            {% endif %}
-            {% if tools %}
-                <div class="py-4">
-                    <div class="mb-4">
-                        <a href="{% url "tools_list" %}"><h1 class="display-4">Tools of Python</h1></a>
-                        <p class="lead">Different software I've happened to write.<p>
-                        <hr>
-                        {% include 'includes/list_tool.html' %}
-                    </div>
-                    <a class="mb-4" href="{% url 'tools_list' %}"><div class="btn btn-outline-dark">All tools</div></a>
-                </div>
-            {% endif %}
-            {% if products %}
-                <div class="py-4">
-                    <div class="mb-4">
-                        <a href="{% url "products_list" %}"><h1 class="display-4">Shop of Python</h1></a>
-                        <p class="lead">Let's shop for some Python stuff, take your time.<p>
-                        <hr>
-                        {% include 'includes/list_product.html' %}
-                    </div>
-                    <a class="mb-4" href="{% url 'products_list' %}"><div class="btn btn-outline-dark">Shop more</div></a>
-                </div>
-            {% endif %}
-        </div>
-    </section>
-{% endblock main_content %}
+                        <a href="{% url "articles" %}">
+                            <h1 class="display-4">Articles</h1>
+                        </a>
+                        <p class="lead">
+                            Articles related to Python, Django and Software Development in general.
+                            <p>
+                                <hr>
+                                {% include 'includes/list_article.html' %}
+                            </div>
+                            <a class="mb-4" href="{% url 'articles' %}">
+                                <div class="btn btn-outline-dark">All articles</div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if tools %}
+                        <div class="py-4">
+                            <div class="mb-4">
+                                <a href="{% url "tools_list" %}">
+                                    <h1 class="display-4">Tools of Python</h1>
+                                </a>
+                                <p class="lead">
+                                    Different software I've happened to write.
+                                    <p>
+                                        <hr>
+                                        {% include 'includes/list_tool.html' %}
+                                    </div>
+                                    <a class="mb-4" href="{% url 'tools_list' %}">
+                                        <div class="btn btn-outline-dark">All tools</div>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% if products %}
+                                <div class="py-4">
+                                    <div class="mb-4">
+                                        <a href="{% url "products_list" %}">
+                                            <h1 class="display-4">Shop of Python</h1>
+                                        </a>
+                                        <p class="lead">
+                                            Let's shop for some Python stuff, take your time.
+                                            <p>
+                                                <hr>
+                                                {% include 'includes/list_product.html' %}
+                                            </div>
+                                            <a class="mb-4" href="{% url 'products_list' %}">
+                                                <div class="btn btn-outline-dark">Shop more</div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </section>
+                        {% endblock main_content %}

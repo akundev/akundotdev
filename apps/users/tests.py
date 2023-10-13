@@ -31,7 +31,7 @@ class TestAboutTemplateView(TestCase):
     def setUp(self):
         test_obj = normal_user
         CustomUser.objects.create_user(main_user=True, **test_obj)
-        author = CustomUser.objects.get(username=test_obj["username"])
+        CustomUser.objects.get(username=test_obj["username"])
         self.main_author = CustomUser.objects.get(username=test_obj["username"])
         self.response = self.client.get(reverse("about"))
 

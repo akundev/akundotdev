@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
-{% block title %}{{product.name}}{% endblock title %}
+{% block title %}
+    {{ product.name }}
+{% endblock title %}
 {% block main_content %}
     <section id="main" class="main">
         <div class="container">
@@ -9,11 +11,13 @@
                 <hr class="">
                 <div class="row">
                     <div class="col=12 col-sm-6 mb-3">
-                        <div class="d-flex justify-content-center mb-2"> 
+                        <div class="d-flex justify-content-center mb-2">
                             <div class="col rounded border border-dark">
                                 <div class="embed-responsive embed-responsive-1by1">
                                     <div class="embed-responsive-item display-4 d-flex justify-content-center   ">
-                                        <div class="align-self-center text-underline"><u>{{product.abbr}}</u></div>
+                                        <div class="align-self-center text-underline">
+                                            <u>{{ product.abbr }}</u>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -26,24 +30,33 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="id_name">Your name</label>
-                                <input class="form-control" type="text" name="name" maxlength="150" required="" id="id_name">
+                                <input class="form-control"
+                                       type="text"
+                                       name="name"
+                                       maxlength="150"
+                                       required=""
+                                       id="id_name">
                             </div>
                             <div class="form-group">
                                 <label for="id_email">Email address</label>
-                                <input class="form-control" type="email" name="email" maxlength="150" required="" id="id_email">
+                                <input class="form-control"
+                                       type="email"
+                                       name="email"
+                                       maxlength="150"
+                                       required=""
+                                       id="id_email">
                             </div>
-                            
                             <input type="hidden" name="product" maxlength="150" required="" id="id_product" value={{ product.pk }}>
-                            <input class="btn btn-block btn-outline-dark" type="submit" value="Order Now">
+                            <input class="btn btn-block btn-outline-dark"
+                                   type="submit"
+                                   value="Order Now">
                         </form>
                     </div>
-                    <div  class="col-12 col-sm-6 mb-3">
-
-                    </div>
+                    <div class="col-12 col-sm-6 mb-3"></div>
                 </div>
                 <hr class="">
                 {% for tag in product.tags.all %}
-                    <a href="{{tag.get_absolute_url}}" class="text-muted">#{{tag.tag_name}}</a>
+                    <a href="{{ tag.get_absolute_url }}" class="text-muted">#{{ tag.tag_name }}</a>
                 {% endfor %}
             </div>
         </div>
