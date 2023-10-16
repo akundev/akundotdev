@@ -20,7 +20,9 @@
                 </a>
                 <div class="mb-2">{{ article.description }}</div>
                 <div class="mb-2">
-                    {% for tag in article.tags.all %}<a href="{{ tag.get_absolute_url }}" class="small">#{{ tag.tag_name }}</a>{% endfor %}
+                    {% for tag in article.tags.all %}
+                        <a href="{{ tag.get_absolute_url }}" class="small">#{{ tag.tag_name }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

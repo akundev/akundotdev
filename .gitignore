@@ -136,3 +136,5 @@ email_secret.py
 postgres_data/
 db.json
 db.sqlite3
+
+PID_FILE
