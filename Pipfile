@@ -12,7 +12,6 @@ djlint = "*"
 django = "==4.2.6"
 markdown = "==3.4.1"
 whitenoise = "==6.2.0"
-gunicorn = "==21.2.0"
 
 [requires]
 python_version = "3"
