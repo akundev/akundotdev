@@ -9,7 +9,7 @@ black = "*"
 djlint = "*"
 
 [packages]
-django = "==4.2.7"
+django = "==4.2.11"
 markdown = "==3.4.1"
 whitenoise = "==6.2.0"
 
