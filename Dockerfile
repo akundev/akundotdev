@@ -2,10 +2,12 @@ FROM python:3.13-alpine AS builder
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir pipenv==2025.0.4 daphne==4.2.1
+RUN pip install --no-cache-dir pipenv==2025.0.4 daphne==4.2.1 
 
 COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy --ignore-pipfile --system
+
+RUN PIPENV_VENV_IN_PROJECT=1 \
+    pipenv install --deploy --ignore-pipfile --system
 
 COPY . .
 RUN python ./manage.py collectstatic --noinput
