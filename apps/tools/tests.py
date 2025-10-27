@@ -59,7 +59,7 @@ class TestToolsListViews(TestCase):
         obj = Tool.objects.all()
         response = self.client.get(reverse("tools_list"))
 
-        self.assertQuerysetEqual(response.context["tools"], obj, transform=lambda x: x)
+        self.assertQuerySetEqual(response.context["tools"], obj, transform=lambda x: x)
         self.assertTemplateUsed(response, "tools/tools_list.html")
         self.assertEqual(response.status_code, 200)
 

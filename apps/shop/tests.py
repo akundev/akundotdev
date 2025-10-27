@@ -65,7 +65,7 @@ class TestProductListView(TestCase):
         obj = Product.objects.all()
         response = self.client.get(reverse("products_list"))
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["products"], obj, transform=lambda x: x
         )
         self.assertTemplateUsed(response, "shop/products_list.html")

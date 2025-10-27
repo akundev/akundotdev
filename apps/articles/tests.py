@@ -145,7 +145,7 @@ class TestHomepageListView(TestCase):
 
         response = self.client.get(reverse("home"))
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["articles"], obj_is_pub, transform=lambda x: x
         )
         self.assertEqual(response.context["tools"][0], test_tool)
@@ -167,7 +167,7 @@ class TestArticleListView(TestCase):
         obj_is_pub = Article.objects.all().is_published()
         response = self.client.get(reverse("articles"))
 
-        self.assertQuerysetEqual(
+        self.assertQuerySetEqual(
             response.context["articles"], obj_is_pub, transform=lambda x: x
         )
         self.assertTemplateUsed(response, "articles/articles.html")
